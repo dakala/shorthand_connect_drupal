@@ -34,7 +34,7 @@ function shorthand_admin_settings($form, &$form_state) {
   );
 
   $options = array();
-  $formats = filter_formats($GLOBALS['user']);
+  $formats = filter_formats();
   foreach ($formats as $format) {
     $options[$format->format] = $format->name;
   }
@@ -43,8 +43,7 @@ function shorthand_admin_settings($form, &$form_state) {
     '#type' => 'select',
     '#title' => t('Text format'),
     '#options' => $options,
-    '#default_value' => variable_get('shorthand_input_format', filter_default_format($GLOBALS['user'])),
-    '#access' => count($formats) > 1,
+    '#default_value' => variable_get('shorthand_input_format', filter_default_format()),
     '#weight' => 10,
     '#description' => t('The input format to use for Shorthand story text fields.'),
   );
