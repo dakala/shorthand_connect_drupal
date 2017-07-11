@@ -136,19 +136,26 @@ function update_node_data($node) {
     $story = sh_copy_story($node->nid, $node->shorthand_story_id[LANGUAGE_NONE][0]['value']);
 
     // Handle texts in other languages.
-    $opts = array('http' => array('header' => 'Accept-Charset: UTF-8, *;q=0'));
-    $context = stream_context_create($opts);
+    $head = mb_convert_encoding(
+      file_get_contents($story['path'] . '/component_head.html'),
+      "HTML-ENTITIES",
+      "UTF-8"
+    );
 
-    $head = _shorthand_fix_content_paths($story['url'], file_get_contents($story['path'] . '/component_head.html', FALSE, $context));
     // Allow modules to implement hook_shorthand_story_head_alter.
     drupal_alter('shorthand_story_head', $head, $node->nid);
-    $node->shorthand_story_head[LANGUAGE_NONE][0]['value'] = $head;
+    $node->shorthand_story_head[LANGUAGE_NONE][0]['value'] = _shorthand_fix_content_paths($story['url'], $head);
     $node->shorthand_story_head[LANGUAGE_NONE][0]['format'] = variable_get('shorthand_input_format', 'full_html');
 
-    $body = _shorthand_fix_content_paths($story['url'], file_get_contents($story['path'] . '/component_article.html', FALSE, $context));
+    $body = mb_convert_encoding(
+      file_get_contents($story['path'] . '/component_article.html'),
+      "HTML-ENTITIES",
+      "UTF-8"
+    );
+
     // Allow modules to implement hook_shorthand_story_body_alter.
     drupal_alter('shorthand_story_body', $body, $node->nid);
-    $node->shorthand_story_body[LANGUAGE_NONE][0]['value'] = $body;
+    $node->shorthand_story_body[LANGUAGE_NONE][0]['value'] = _shorthand_fix_content_paths($story['url'], $body);
     $node->shorthand_story_body[LANGUAGE_NONE][0]['format'] = variable_get('shorthand_input_format', 'full_html');
 
     field_attach_update('node', $node);
