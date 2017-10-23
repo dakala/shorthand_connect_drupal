@@ -1,12 +1,10 @@
 <?php
 
 namespace Drupal\shorthand;
+
 use Drupal\Component\Serialization\Json;
-use Drupal\Core\Archiver\ArchiverManager;
-use Drupal\Core\Entity\EntityTypeManager;
 use GuzzleHttp\Client;
 use Drupal\Core\Site\Settings;
-use GuzzleHttp\Exception\RequestException;
 
 /**
  * Class ShorthandApi.
@@ -37,9 +35,9 @@ class ShorthandApi implements ShorthandApiInterface {
   /**
    * Constructs a new ShorthandApi object.
    *
-   * @param Client $http_client
+   * @param \GuzzleHttp\Client $http_client
    *   Http client service instance.
-   * @param Settings $settings
+   * @param \Drupal\Core\Site\Settings $settings
    *   Settings service instance.
    */
   public function __construct(Client $http_client, Settings $settings) {

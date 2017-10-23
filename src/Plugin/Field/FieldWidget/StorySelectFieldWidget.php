@@ -2,7 +2,6 @@
 
 namespace Drupal\shorthand\Plugin\Field\FieldWidget;
 
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\WidgetBase;

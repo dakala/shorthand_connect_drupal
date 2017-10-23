@@ -19,7 +19,7 @@ interface ShorthandApiInterface {
    * Get stories.
    *
    * @return array
-   *    Stories from Shorthand.
+   *   Stories from Shorthand.
    */
   public function getStories();
 

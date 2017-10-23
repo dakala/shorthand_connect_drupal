@@ -28,8 +28,6 @@ class ShorthandStoryForm extends ContentEntityForm {
       ];
     }
 
-    $entity = $this->entity;
-
     return $form;
   }
 

@@ -2,4 +2,3 @@ services:
   shorthand.api:
     class: Drupal\shorthand\ShorthandApi
     arguments: ['@http_client', '@settings']
-

@@ -13,7 +13,6 @@ use Drupal\Core\Link;
  */
 class ShorthandStoryListBuilder extends EntityListBuilder {
 
-
   /**
    * {@inheritdoc}
    */

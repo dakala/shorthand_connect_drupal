@@ -10,7 +10,7 @@ use Drupal\shorthand\Entity\ShorthandStoryInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Provides a form for reverting a Shorthand story revision for a single translation.
+ * Provides a form for reverting a Story revision for a single translation.
  *
  * @ingroup shorthand
  */

@@ -17,7 +17,7 @@ interface ShorthandStoryInterface extends RevisionableInterface, RevisionLogInte
   /**
    * Get Shorthand Story ID.
    *
-   * @return string.
+   * @return string
    *   The shorthand story ID.
    */
   public function getShorthandStoryId();

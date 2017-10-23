@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @file
+ * Shorthand module .install file.
+ */
 
 use Drupal\shorthand\Entity\ShorthandStory;
 

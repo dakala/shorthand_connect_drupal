@@ -24,4 +24,3 @@ entity.shorthand_story.delete_form:
   base_route:  entity.shorthand_story.canonical
   title: Delete
   weight: 10
-
